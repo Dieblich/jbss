@@ -7,6 +7,7 @@ public class Storypoints {
 	
 	
 	public Storypoints() {
+		// Fibionacci
 		storypoints.add(0);
 		storypoints.add(1);
 		storypoints.add(2);
@@ -31,9 +32,19 @@ public class Storypoints {
 		if (unformattetInteger < 0) {
 			result = 0; 
 		} else {
-			for(int sp : storypoints) {
-				if(unformattetInteger<= sp) {
-					result = sp;
+			int entries = storypoints.size()-1;
+			int firstEntry = 0;
+			int secondEntry = 0;
+			double middle = 0;
+			for(int currentEntry = 0; currentEntry < entries; currentEntry++) {
+				firstEntry = storypoints.get(currentEntry);
+				secondEntry = storypoints.get(currentEntry+1);
+				middle = (firstEntry+secondEntry)/2.0;
+				if (unformattetInteger<middle) {
+					result = storypoints.get(currentEntry);
+					currentEntry=entries;
+				} else {
+					result = storypoints.get(currentEntry+1);
 				}
 			}
 		}

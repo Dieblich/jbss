@@ -1,0 +1,12 @@
+package application;
+
+import java.util.ArrayList;
+
+public class Storypoints {
+	public ArrayList<Integer> Storypoints = new ArrayList<>;
+	
+	
+	public Storypoints() {
+		
+	}
+}

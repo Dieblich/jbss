@@ -6,8 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseDragEvent;
 
 public class MainController {
+	
+	private Storypoints myStorypoint = new Storypoints();
+	
+	private int result = 0;
 
     @FXML
     private Label labelTitle;
@@ -101,19 +106,85 @@ public class MainController {
 
     @FXML
     private Button buttonCalculateStoryPointsRng;
+    
+    @FXML
+    void setSliderLabel(MouseDragEvent event) {
+    		System.out.println("Gezogen");
+    }
 
     @FXML
     void calculateStoryPoints(ActionEvent event) {
+    	// collect the values
+    	double selectedPoints =   (double)(sliderClasses.getValue()) 
+    							+ (double)(sliderDataModellChanges.getValue()) 
+    							+ (double)(sliderDesignChanges.getValue())
+    							+ (double)(sliderExternalHelp.getValue())
+    							+ (double)(sliderInsecurity.getValue())
+    							+ (double)(sliderNewTests.getValue())
+    							+ (double)(sliderRegressionTests.getValue())
+    							+ (double)(sliderRequirements.getValue());
     	
-
+    	// add the manually set story points
+    	selectedPoints += Double.valueOf(textFieldManualStoryPoints.getText());
+    	// calculate the result
+    	result = myStorypoint.getStorypoints((int)(selectedPoints));
+    	setResult(result);
     }
 
     @FXML
     void calculateStoryPointsRng(ActionEvent event) {
-    	Storypoints myStorypoint = new Storypoints();
-    	int result = myStorypoint.getStorypoints((int) (100*Math.random()));
-    	labelResult.setText(String.valueOf(result));
+    	// get a random number between 0 and 100
+    	int myCustomStorypoints = (int) (100*Math.random());
+    	// calculate the result
+    	result = myStorypoint.getStorypoints(myCustomStorypoints);
+    	setResult(result);
     	
+    }
+    
+
+    @FXML
+    void resetSliders(ActionEvent event) {
+    	sliderClasses.setValue(0);
+    	sliderDataModellChanges.setValue(0);
+    	sliderDesignChanges.setValue(0);
+    	sliderExternalHelp.setValue(0);
+    	sliderInsecurity.setValue(0);
+    	sliderNewTests.setValue(0);
+    	sliderRegressionTests.setValue(0);
+    	sliderRequirements.setValue(0);
+    }
+    
+    void setResult(int result) {
+    	labelResult.setText(String.valueOf(result));
+    }
+    
+    public void initialize() {
+
+        sliderClasses.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintClasses.setText(Double.toString(newValue.intValue()));
+        });
+        sliderDataModellChanges.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintDataModellChanges.setText(Double.toString(newValue.intValue()));
+        });
+        sliderDesignChanges.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintDesignChanges.setText(Double.toString(newValue.intValue()));
+        });
+        sliderExternalHelp.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintExternalHelp.setText(Double.toString(newValue.intValue()));
+        });
+        sliderInsecurity.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintInsecurity.setText(Double.toString(newValue.intValue()));
+        });
+        sliderNewTests.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintNewTests.setText(Double.toString(newValue.intValue()));
+        });
+        sliderRegressionTests.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintRegressionTests.setText(Double.toString(newValue.intValue()));
+        });
+        sliderRequirements.valueProperty().addListener((observable, oldValue, newValue) -> {
+            hintRequirements.setText(Double.toString(newValue.intValue()));
+        });
+
     }
 
 }
