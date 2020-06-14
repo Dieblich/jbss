@@ -1,0 +1,11 @@
+package scrum;
+
+public class Classes implements Storypoints {
+
+	@Override
+	public int transformScale(int scale) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

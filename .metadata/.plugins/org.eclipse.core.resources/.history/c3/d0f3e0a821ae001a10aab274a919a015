@@ -1,0 +1,23 @@
+package scrum;
+
+import java.util.HashMap;
+
+public class Classes implements Storypoints {
+
+	HashMap<Integer, Integer> storypointmap = new HashMap<Integer, Integer>();
+	
+	public Classes() {
+		storypointmap.put(0, 0);
+		storypointmap.put(1, 1);
+		storypointmap.put(2, 5);
+		storypointmap.put(3, 8);
+		
+	}
+	
+	@Override
+	public int transformScale(int scale) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

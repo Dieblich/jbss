@@ -7,10 +7,29 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseDragEvent;
+import scrum.Classes;
+import scrum.DataModell;
+import scrum.Design;
+import scrum.ExternalHelp;
+import scrum.Insecurtiy;
+import scrum.NewTests;
+import scrum.RegressionTests;
+import scrum.Requirements;
 
 public class MainController {
 	
+	Classes classes = new Classes();
+	DataModell datamodell = new DataModell();
+	Design design = new Design();
+	ExternalHelp externalHelp = new ExternalHelp();
+	Insecurtiy insecurtiy = new Insecurtiy();
+	NewTests newTests = new NewTests();
+	RegressionTests regressionTests = new RegressionTests();
+	Requirements requirements= new Requirements();
+	
 	private Storypoints myStorypoint = new Storypoints();
+	
+	private String sptext = " SP";
 	
 	private int result = 0;
 
@@ -112,23 +131,30 @@ public class MainController {
     		System.out.println("Gezogen");
     }
 
-    @FXML
+    @SuppressWarnings("null")
+	@FXML
     void calculateStoryPoints(ActionEvent event) {
+    	
+    	
+    	
     	// collect the values
-    	double selectedPoints =   (double)(sliderClasses.getValue()) 
-    							+ (double)(sliderDataModellChanges.getValue()) 
-    							+ (double)(sliderDesignChanges.getValue())
-    							+ (double)(sliderExternalHelp.getValue())
-    							+ (double)(sliderInsecurity.getValue())
-    							+ (double)(sliderNewTests.getValue())
-    							+ (double)(sliderRegressionTests.getValue())
-    							+ (double)(sliderRequirements.getValue());
+    	
+    	
+    	double selectedPoints =   (double)(classes.transformScale((int)(sliderClasses.getValue()))) 
+    							+ (double)(datamodell.transformScale((int)(sliderDataModellChanges.getValue()))) 
+    							+ (double)(design.transformScale((int)(sliderDesignChanges.getValue())))
+    							+ (double)(externalHelp.transformScale((int)(sliderExternalHelp.getValue())))
+    							+ (double)(insecurtiy.transformScale((int)(sliderInsecurity.getValue())))
+    							+ (double)(newTests.transformScale((int)(sliderNewTests.getValue())))
+    							+ (double)(regressionTests.transformScale((int)(sliderRegressionTests.getValue())))
+    							+ (double)(requirements.transformScale((int)(sliderRequirements.getValue())));
     	
     	// add the manually set story points
     	selectedPoints += Double.valueOf(textFieldManualStoryPoints.getText());
     	// calculate the result
     	result = myStorypoint.getStorypoints((int)(selectedPoints));
     	setResult(result);
+    	
     }
 
     @FXML
@@ -152,6 +178,7 @@ public class MainController {
     	sliderNewTests.setValue(0);
     	sliderRegressionTests.setValue(0);
     	sliderRequirements.setValue(0);
+    	textFieldManualStoryPoints.setText("0");
     }
     
     void setResult(int result) {
@@ -161,28 +188,28 @@ public class MainController {
     public void initialize() {
 
         sliderClasses.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintClasses.setText(Double.toString(newValue.intValue()));
+            hintClasses.setText(Integer.toString(classes.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderDataModellChanges.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintDataModellChanges.setText(Double.toString(newValue.intValue()));
+            hintDataModellChanges.setText(Integer.toString(datamodell.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderDesignChanges.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintDesignChanges.setText(Double.toString(newValue.intValue()));
+            hintDesignChanges.setText(Integer.toString(design.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderExternalHelp.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintExternalHelp.setText(Double.toString(newValue.intValue()));
+            hintExternalHelp.setText(Integer.toString(externalHelp.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderInsecurity.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintInsecurity.setText(Double.toString(newValue.intValue()));
+            hintInsecurity.setText(Integer.toString(insecurtiy.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderNewTests.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintNewTests.setText(Double.toString(newValue.intValue()));
+            hintNewTests.setText(Integer.toString(newTests.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderRegressionTests.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintRegressionTests.setText(Double.toString(newValue.intValue()));
+            hintRegressionTests.setText(Integer.toString(regressionTests.transformScale((int)(newValue.intValue())))+sptext);
         });
         sliderRequirements.valueProperty().addListener((observable, oldValue, newValue) -> {
-            hintRequirements.setText(Double.toString(newValue.intValue()));
+            hintRequirements.setText(Integer.toString(requirements.transformScale((int)(newValue.intValue())))+sptext);
         });
 
     }

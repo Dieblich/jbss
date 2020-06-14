@@ -1,0 +1,10 @@
+package scrum;
+
+import java.util.HashMap;
+
+public interface Storypoints {
+
+	HashMap<Integer, Integer> storypointmap = new HashMap<Integer, Integer>();
+	
+	public int transformScale(int scale);
+}

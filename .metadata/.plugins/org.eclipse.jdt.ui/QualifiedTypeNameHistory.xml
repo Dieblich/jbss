@@ -6,4 +6,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="application.Storypoints"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="javafx.scene.input.DragEvent"/>
+<fullyQualifiedTypeName name="javafx.scene.input.MouseDragEvent"/>
 </qualifiedTypeNameHistroy>
