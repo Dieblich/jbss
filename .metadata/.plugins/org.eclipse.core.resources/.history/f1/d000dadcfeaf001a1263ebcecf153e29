@@ -1,0 +1,21 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import scrum.Requirements;
+
+class TestRequirements {
+
+	Requirements requirements = new Requirements();
+	
+	@Test
+	void testTransformScale() {
+		assertEquals(0,requirements.transformScale(0));
+	}
+	
+	@Test
+	void testTransformScaleNegative() {
+		assertNotEquals(0,requirements.transformScale(0));
+	}
+
+}

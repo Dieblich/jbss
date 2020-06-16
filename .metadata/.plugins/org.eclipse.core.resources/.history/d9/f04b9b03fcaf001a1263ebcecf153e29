@@ -1,0 +1,22 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+import application.Storypoints;
+
+class TestStorypoints {
+
+	Storypoints storypoints = new Storypoints();
+	
+	@Before
+	public void before() {
+		
+	}
+	
+	@Test
+	void test() {
+		assertEquals(20, storypoints.getStorypoints(25));
+	}
+
+}

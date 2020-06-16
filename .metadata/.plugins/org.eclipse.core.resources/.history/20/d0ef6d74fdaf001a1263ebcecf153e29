@@ -1,0 +1,21 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import scrum.DataModell;
+
+class TestDataModell {
+
+	DataModell datamodell = new DataModell();
+	
+	@Test
+	void testTransformScale() {
+		assertEquals(8,datamodell.transformScale(3));
+	}
+	
+	@Test
+	void testTransformScaleNegative() {
+		assertEquals(13,datamodell.transformScale(3));
+	}
+
+}

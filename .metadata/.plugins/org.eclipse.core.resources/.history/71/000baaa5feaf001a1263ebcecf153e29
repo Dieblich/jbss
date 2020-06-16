@@ -1,0 +1,16 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import scrum.RegressionTests;
+
+class TestRegressionTests {
+
+	RegressionTests regressionTests = new RegressionTests();
+	
+	@Test
+	void testTransformScale() {
+		assertEquals(2,regressionTests.transformScale(2));
+	}
+
+}

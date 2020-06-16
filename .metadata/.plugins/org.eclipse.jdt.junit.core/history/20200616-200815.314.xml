@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestStorypoints" project="jbss" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="TestStorypoints" time="0.018" uniqueid="[engine:junit-jupiter]/[class:TestStorypoints]">
+    <testcase name="testGetStorypointsNegative" classname="TestStorypoints" time="0.008" displayname="testGetStorypointsNegative()" uniqueid="[engine:junit-jupiter]/[class:TestStorypoints]/[method:testGetStorypointsNegative()]"/>
+    <testcase name="testGetStorypoints" classname="TestStorypoints" time="0.01" displayname="testGetStorypoints()" uniqueid="[engine:junit-jupiter]/[class:TestStorypoints]/[method:testGetStorypoints()]"/>
+  </testsuite>
+</testrun>

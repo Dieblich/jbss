@@ -11,7 +11,7 @@ public class Design implements Storypoints {
 		storypointmap.put(1, 0);
 		storypointmap.put(2, 20);
 		storypointmap.put(3, 40);
-		storypointmap.put(3, 100);
+		storypointmap.put(4, 100);
 	}
 	
 	@Override

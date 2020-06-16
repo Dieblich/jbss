@@ -8,4 +8,15 @@
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="javafx.scene.input.DragEvent"/>
 <fullyQualifiedTypeName name="javafx.scene.input.MouseDragEvent"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="scrum.Classes"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.Request"/>
+<fullyQualifiedTypeName name="scrum.DataModell"/>
+<fullyQualifiedTypeName name="scrum.Design"/>
+<fullyQualifiedTypeName name="scrum.ExternalHelp"/>
+<fullyQualifiedTypeName name="scrum.Insecurtiy"/>
+<fullyQualifiedTypeName name="scrum.NewTests"/>
+<fullyQualifiedTypeName name="scrum.RegressionTests"/>
+<fullyQualifiedTypeName name="scrum.Requirements"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,12 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestInsecurity {
+
+	@Test
+	void testTransformScale() {
+		fail("Not yet implemented");
+	}
+
+}

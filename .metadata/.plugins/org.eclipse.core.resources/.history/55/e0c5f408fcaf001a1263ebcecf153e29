@@ -1,0 +1,25 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+import application.Storypoints;
+
+class TestStorypoints {
+
+	Storypoints storypoints = new Storypoints();
+	
+	@Before
+	public void before() {
+		
+	}
+	
+	@Test
+	void testGetStorypoints() {
+		assertEquals("Formattation not correct.", 20, storypoints.getStorypoints(25));
+	}
+	
+	@Test
+	void 
+
+}
